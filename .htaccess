@@ -1,5 +1,9 @@
 <IfModule mod_rewrite.c>
 Options +FollowSymLinks
 RewriteEngine on
-RewriteRule ^([a-zA-Z_]+)/?([0-9]+)?$ index.php?page=$1&id=$2 [L] 
+RewriteBase /sherif2
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(images|photos|css|js|robots\.txt)
+RewriteRule ^(.*)$ index.php?url=$1 [L]
 </IfModule>
